@@ -18,6 +18,7 @@ import {
   ShieldAlert
 } from 'lucide-react';
 import './App.css';
+import { Config } from './config';
 
 // Unique session ID per page load
 const generateSessionId = () => 's-' + Math.random().toString(36).substring(2, 10);
@@ -37,8 +38,8 @@ export default function App() {
 
   const messagesEndRef = useRef(null);
 
-  // Backend API URL defaults to current origin or fallback
-  const API_BASE = import.meta.env.VITE_BACKEND_URL || '';
+  // Backend API URL defaults to current origin or fallback from Config
+  const API_BASE = Config.BACKEND_URL;
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
