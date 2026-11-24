@@ -1,0 +1,31 @@
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - LLM_API_KEYS=${LLM_API_KEYS:-key_1_placeholder,key_2_placeholder}
+      - DATABASE_URL=sqlite:////data/app.db
+      - ALLOWED_ORIGINS=${ALLOWED_ORIGINS:-http://localhost:3000,http://127.0.0.1:3000,*}
+      - ENABLE_FAILURE_SIMULATION=true
+      - DEFAULT_MODEL=${DEFAULT_MODEL:-gemini/gemini-2.0-flash}
+      - MOCK_LLM=${MOCK_LLM:-false}
+    volumes:
+      - lyftr-data:/data
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+volumes:
+  lyftr-data:
+    name: lyftr-data
