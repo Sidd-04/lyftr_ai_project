@@ -6,7 +6,7 @@ A high-performance, resilient AI chatbot built with FastAPI, SQLite, LiteLLM, an
 
 ## 1. Live URLs
 - **GitHub Repository**: [https://github.com/Sidd-04/lyftr_ai_project](https://github.com/Sidd-04/lyftr_ai_project)
-- **Frontend App**: [https://lyftr-ai-project.vercel.app](https://lyftr-ai-project.vercel.app)
+- **Frontend App**: [https://lyftr-ai-app.vercel.app](https://lyftr-ai-app.vercel.app)
 - **Backend API**: [https://lyftr-ai-backend.onrender.com](https://lyftr-ai-backend.onrender.com)
 
 ---
