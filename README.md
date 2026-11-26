@@ -16,9 +16,8 @@ A high-performance, resilient AI chatbot built with FastAPI, SQLite, LiteLLM, an
 ### Prerequisites
 - Node.js 18+ & npm
 - Python 3.11+
-- Docker & Docker Compose (optional for containerized run)
-
-### Method A: With Docker Compose (Mandatory Specification)
+- Docker & Docker Compose
+### Method A: With Docker Compose
 Start the entire stack with a single command:
 ```bash
 make up
