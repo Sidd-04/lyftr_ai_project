@@ -75,8 +75,7 @@ Visit [http://localhost:3000](http://localhost:3000).
 - **Fail-Safe Exhaustion**: If all keys in the pool fail, the server responds with a clean `503 {"detail": "all providers unavailable"}` without exposing internal stack traces or HTML errors. Crucially, failed requests are **never added to the SQLite history**.
 
 ### High-Speed Response Caching
-- **Deterministic Cache Key**: Computed using a SHA-256 hash of the canonical JSON representation of `(model + full_messages_list)`:
-  $$\text{Cache Key} = \text{SHA256}(\text{model} + [\{\text{role}, \text{content}\}_{\text{system} + \text{history} + \text{new\_msg}}])$$
+- **Deterministic Cache Key**: Computed using a SHA-256 hash of the canonical JSON representation of `(model + full_messages_list)`
 - **Instantaneous Resolution**: When an identical conversation context is re-submitted (e.g., repeating the first message in a brand new session), the response is delivered from cache in `< 5ms`, tagged with `LLM_CACHE`, `key_id: null`, and identical token counts.
 - Any change in system prompt, previous turns, or query immediately triggers `LIVE_INFERENCE`.
 
